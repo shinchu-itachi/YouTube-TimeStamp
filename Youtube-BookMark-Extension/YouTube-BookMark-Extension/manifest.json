@@ -1,0 +1,45 @@
+{
+  "name": "YouTube TimeStamp",
+  "version": "0.1.0",
+  "description": "Saving timestamps in YouTube videos",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://*.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+ 
+  "icons": {
+    "16": "Asset/bookmark.png",
+    "32":"Asset/bookmark.png",
+    "64":"Asset/bookmark.png"
+  },
+  
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "Asset/bookmark.png",
+        "Asset/play.png",
+        "Asset/delete.png",
+        "Asset/save.png"
+      ],
+      "matches": ["https://*.youtube.com/*"]
+    }
+  ],
+
+  "action": {
+    "default_icon": {
+      "16": "Asset/ext-icon.png",
+      "24": "Asset/ext-icon.png",
+      "32": "Asset/ext-icon.png"
+    },
+    "default_title": "YouTube TimeStamp Bookmark",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
+}
